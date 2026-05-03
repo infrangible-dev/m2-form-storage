@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @author      Andreas Knollmann
+ * @copyright   2014-2026 Softwareentwicklung Andreas Knollmann
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+
+use Infrangible\FormStorage\Block\Forms;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\TemplateEngine\Php;
+
+/** @var Php $this */
+/** @var Forms $block */
+/** @var Escaper $escaper */
+?>
+
+<?php foreach ($block->getFormData() as $formSelector => $formConfig) : ?>
+    <script type="text/x-magento-init">
+        {
+            "<?= $formSelector ?>": {
+                "formStorage": <?= $formConfig ?>
+            }
+        }
+    </script>
+<?php endforeach; ?>

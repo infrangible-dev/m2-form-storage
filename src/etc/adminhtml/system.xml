@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!--
+ * @author      Andreas Knollmann
+ * @copyright   2014-2026 Softwareentwicklung Andreas Knollmann
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="infrangible_formstorage" sortOrder="920" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>infrangible</tab>
+            <class>separator-top</class>
+            <label>Form Storage</label>
+            <resource>Infrangible_FormStorage::config_infrangible_formstorage</resource>
+            <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+                <field id="forms" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Forms</label>
+                    <frontend_model>Infrangible\FormStorage\Block\Adminhtml\Form\Field\Forms</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

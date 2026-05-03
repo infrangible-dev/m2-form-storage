@@ -1,0 +1,18 @@
+{
+    "require": [
+        "fewedev:mailcatcher06.json",
+        "bemage:mysql57.json",
+        "bemage:redis72.json",
+        "bemage:elasticsearch79.json",
+        "bemage:rabbitmq311.json",
+        "bemage:cli82.json",
+        "bemage:fpm82.json",
+        "bemage:nginx125.json",
+        "bemage:community246p3.json",
+        "infrangible:infrangible.json"
+    ],
+    "global": {
+        "systemName": "infrangible_m2_form_storage",
+        "moduleFeatureName": "FormStorage"
+    }
+}
