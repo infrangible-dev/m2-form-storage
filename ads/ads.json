@@ -1,14 +1,14 @@
 {
     "require": [
         "fewedev:mailcatcher06.json",
-        "bemage:mysql57.json",
-        "bemage:redis72.json",
-        "bemage:elasticsearch79.json",
-        "bemage:rabbitmq311.json",
-        "bemage:cli82.json",
-        "bemage:fpm82.json",
-        "bemage:nginx125.json",
-        "bemage:community246p3.json",
+        "bemage:mariadb114.json",
+        "bemage:valkey81.json",
+        "bemage:opensearch34.json",
+        "bemage:rabbitmq41.json",
+        "bemage:cli84.json",
+        "bemage:fpm84.json",
+        "bemage:nginx128.json",
+        "bemage:community248p3.json",
         "infrangible:infrangible.json"
     ],
     "global": {
