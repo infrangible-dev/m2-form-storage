@@ -13,7 +13,7 @@ define([
 ], function ($, domReady) {
     'use strict';
 
-    var globalOptions = {
+    const globalOptions = {
         storageName: null,
         textFields: [
             'input[type=color]',
@@ -49,7 +49,7 @@ define([
         options: globalOptions,
 
         _create: function createStorageFormData() {
-            var self = this;
+            const self = this;
 
             if (self.options.storageName === null) {
                 if (self.element.attr('name')) {
@@ -59,7 +59,7 @@ define([
                 }
             }
 
-            var observer = new MutationObserver(function (nodes) {
+            const observer = new MutationObserver(function (nodes) {
                 $.each(nodes, function (index, node) {
                     if (node.addedNodes.length > 0) {
                         $.each(node.addedNodes, function (index, addedNode) {
@@ -77,7 +77,7 @@ define([
         },
 
         _init: function initStorageFormData() {
-            var self = this;
+            const self = this;
 
             domReady(function() {
                 self.restoreForm();
@@ -115,7 +115,7 @@ define([
         },
 
         bindField: function(field) {
-            var self = this;
+            const self = this;
 
             $.each(self.options.textFields, function(index, selector) {
                 if (field.is(selector)) {
@@ -149,10 +149,10 @@ define([
         },
 
         bindFieldText: function(field) {
-            var self = this;
+            const self = this;
 
             field.on('input', function() {
-                var fieldValue = $(this).val();
+                const fieldValue = $(this).val();
 
                 self.saveFieldData($(this), fieldValue);
             });
@@ -163,21 +163,21 @@ define([
         },
 
         bindFieldCheckbox: function(field) {
-            var self = this;
+            const self = this;
 
             field.on('click', function() {
-                var fieldValue = $(this).is(':checked') ? 1 : 0;
+                const fieldValue = $(this).is(':checked') ? 1 : 0;
 
                 self.saveFieldData($(this), fieldValue);
             });
         },
 
         bindFieldRadio: function(field) {
-            var self = this;
+            const self = this;
 
             field.on('click', function() {
                 if ($(this).is(':checked')) {
-                    var fieldValue = $(this).val();
+                    const fieldValue = $(this).val();
 
                     self.saveFieldData($(this), fieldValue);
                 }
@@ -185,17 +185,17 @@ define([
         },
 
         bindFieldSelect: function(field) {
-            var self = this;
+            const self = this;
 
             field.on('change', function() {
-                var fieldValue = $(this).val();
+                const fieldValue = $(this).val();
 
                 self.saveFieldData($(this), fieldValue);
             });
         },
 
         getStorageData: function() {
-            var rawStorageData = window.localStorage.getItem('formData');
+            const rawStorageData = window.localStorage.getItem('formData');
             return rawStorageData ? JSON.parse(rawStorageData) : {};
         },
 
@@ -204,7 +204,7 @@ define([
         },
 
         getFormData: function() {
-            var storageData = this.getStorageData();
+            const storageData = this.getStorageData();
 
             if (! storageData.hasOwnProperty(this.options.storageName)) {
                 storageData[this.options.storageName] = {};
@@ -214,7 +214,7 @@ define([
         },
 
         saveFormData: function(formData) {
-            var storageData = this.getStorageData();
+            const storageData = this.getStorageData();
 
             storageData[this.options.storageName] = formData;
 
@@ -222,15 +222,15 @@ define([
         },
 
         getFieldData: function(fieldName) {
-            var formData = this.getFormData();
+            const formData = this.getFormData();
 
             return formData.hasOwnProperty(fieldName) ? formData[fieldName] : null;
         },
 
         saveFieldData: function(field, fieldValue) {
-            var formData = this.getFormData();
+            const formData = this.getFormData();
 
-            var fieldName = field.attr('name');
+            const fieldName = field.attr('name');
 
             formData[fieldName] = fieldValue;
 
@@ -238,7 +238,7 @@ define([
         },
 
         restoreForm: function() {
-            var self = this;
+            const self = this;
 
             $.each(self.options.textFields, function(index, selector) {
                 self.element.find(selector).each(function() {
@@ -272,7 +272,7 @@ define([
         },
 
         restoreField: function(field) {
-            var self = this;
+            const self = this;
 
             $.each(self.options.textFields, function(index, selector) {
                 if (field.is(selector)) {
@@ -306,9 +306,9 @@ define([
         },
 
         restoreFieldText: function(field) {
-            var fieldName = field.attr('name');
+            const fieldName = field.attr('name');
 
-            var fieldValue = this.getFieldData(fieldName);
+            const fieldValue = this.getFieldData(fieldName);
 
             if (fieldValue !== null) {
                 field.val(fieldValue);
@@ -322,9 +322,9 @@ define([
         },
 
         restoreFieldCheckbox: function(field) {
-            var fieldName = field.attr('name');
+            const fieldName = field.attr('name');
 
-            var fieldValue = this.getFieldData(fieldName);
+            const fieldValue = this.getFieldData(fieldName);
 
             if (fieldValue !== null) {
                 if (fieldValue === 1) {
@@ -335,9 +335,9 @@ define([
         },
 
         restoreFieldRadio: function(field) {
-            var fieldName = field.attr('name');
+            const fieldName = field.attr('name');
 
-            var fieldValue = this.getFieldData(fieldName);
+            const fieldValue = this.getFieldData(fieldName);
 
             if (fieldValue !== null) {
                 if (fieldValue === field.attr('value')) {
@@ -348,9 +348,9 @@ define([
         },
 
         restoreFieldSelect: function(field) {
-            var fieldName = field.attr('name');
+            const fieldName = field.attr('name');
 
-            var fieldValue = this.getFieldData(fieldName);
+            const fieldValue = this.getFieldData(fieldName);
 
             if (fieldValue !== null) {
                 field.val(fieldValue);
