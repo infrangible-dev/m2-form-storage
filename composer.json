@@ -1,11 +1,17 @@
 {
     "name": "infrangible/m2-form-storage",
-    "description": "Infrangible Magento 2 Form Storage Data",
+    "description": "Remembers what visitors type into selected forms in their browser and fills it in again when they come back to the form.",
     "type": "magento2-module",
     "version": "1.0.1",
     "license": "MIT",
     "keywords": [
-        "Magento"
+        "Magento",
+        "Magento 2",
+        "Adobe Commerce",
+        "Customers",
+        "save form input in the browser",
+        "restore form data",
+        "remember form fields"
     ],
     "homepage": "https://github.com/infrangible-dev/m2-form-storage",
     "authors": [
